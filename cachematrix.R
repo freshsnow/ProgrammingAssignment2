@@ -31,14 +31,14 @@ cacheSolve <- function(x, ...) {
         inv <- x$getinverse() #obtain the variable that caches the inverse of x
         if( !is.null(inv) ) {#if the variable is not null, it means the cache has already been calculated 
           message("returning cached inverse")
-          return(inv) #return the cached inverse 
+          return(inv) #returns the cache inverse
         }
         
         #The inverse of x has not been cached. Hence, calculate the inverse, store it and then return the inverse value
         
-        m <- x$get()
-        inv <- solve(m)
-        x$setinverse(inv)
-        inv
+        m <- x$get() #obtain the matrix stored in x 
+        inv <- solve(m) #solve and obtain inverse of x 
+        x$setinverse(inv) #store the inverse of x into the cache variable 
+        inv #returns the calculated inverse
         
 }
